@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/an-player-task/static/css/main.16bb1c6d.chunk.css",
-    "main.js": "/an-player-task/static/js/main.41d7b979.chunk.js",
-    "main.js.map": "/an-player-task/static/js/main.41d7b979.chunk.js.map",
+    "main.css": "/an-player-task/static/css/main.7dddb2ca.chunk.css",
+    "main.js": "/an-player-task/static/js/main.719a1d43.chunk.js",
+    "main.js.map": "/an-player-task/static/js/main.719a1d43.chunk.js.map",
     "runtime-main.js": "/an-player-task/static/js/runtime-main.ab87c719.js",
     "runtime-main.js.map": "/an-player-task/static/js/runtime-main.ab87c719.js.map",
     "static/css/2.a9e3d64b.chunk.css": "/an-player-task/static/css/2.a9e3d64b.chunk.css",
-    "static/js/2.62257e00.chunk.js": "/an-player-task/static/js/2.62257e00.chunk.js",
-    "static/js/2.62257e00.chunk.js.map": "/an-player-task/static/js/2.62257e00.chunk.js.map",
+    "static/js/2.c39a3082.chunk.js": "/an-player-task/static/js/2.c39a3082.chunk.js",
+    "static/js/2.c39a3082.chunk.js.map": "/an-player-task/static/js/2.c39a3082.chunk.js.map",
     "index.html": "/an-player-task/index.html",
-    "precache-manifest.40e3995d4346bc6fcfa84f095893e0e1.js": "/an-player-task/precache-manifest.40e3995d4346bc6fcfa84f095893e0e1.js",
+    "precache-manifest.d60cc1e11b5e4b00d4df279c689027f0.js": "/an-player-task/precache-manifest.d60cc1e11b5e4b00d4df279c689027f0.js",
     "service-worker.js": "/an-player-task/service-worker.js",
     "static/css/2.a9e3d64b.chunk.css.map": "/an-player-task/static/css/2.a9e3d64b.chunk.css.map",
-    "static/css/main.16bb1c6d.chunk.css.map": "/an-player-task/static/css/main.16bb1c6d.chunk.css.map",
-    "static/js/2.62257e00.chunk.js.LICENSE.txt": "/an-player-task/static/js/2.62257e00.chunk.js.LICENSE.txt",
+    "static/css/main.7dddb2ca.chunk.css.map": "/an-player-task/static/css/main.7dddb2ca.chunk.css.map",
+    "static/js/2.c39a3082.chunk.js.LICENSE.txt": "/an-player-task/static/js/2.c39a3082.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/an-player-task/static/media/Gilroy-Regular.22d25e11.ttf",
     "static/media/Play_active.png": "/an-player-task/static/media/Play_active.d522478d.png",
     "static/media/back_ico.svg": "/an-player-task/static/media/back_ico.6d8b1009.svg",
@@ -33,8 +33,8 @@
   "entrypoints": [
     "static/js/runtime-main.ab87c719.js",
     "static/css/2.a9e3d64b.chunk.css",
-    "static/js/2.62257e00.chunk.js",
-    "static/css/main.16bb1c6d.chunk.css",
-    "static/js/main.41d7b979.chunk.js"
+    "static/js/2.c39a3082.chunk.js",
+    "static/css/main.7dddb2ca.chunk.css",
+    "static/js/main.719a1d43.chunk.js"
   ]
 }
