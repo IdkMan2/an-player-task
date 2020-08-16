@@ -14,20 +14,20 @@ export interface RootTemplateProps {
 function RootTemplate(props: RootTemplateProps) {
 
   return (
-    <main className={classes.root}>
+    <React.Fragment>
       <div className={classes.backgroundLayer}>{props.backgroundLayer}</div>
       <div className={classes.sectionsContainer}>
         <section>{props.header}</section>
-        <section style={{ marginTop: 13 }}>{props.body}</section>
-        <section style={{ marginTop: 38 }}>{props.player}</section>
-        <section style={{ marginTop: 35 }}>{props.progressBar}</section>
-        <section style={{ flex: 1, marginTop: 15, }} />
-        <section className={classes.footer}>
-          {props.musicWave}
-          {props.footer}
+        <section className={classes.bodySection}>{props.body}</section>
+
+        <section className={classes.stickyBottom}>
+          <section style={{ marginTop: 32 }}>{props.player}</section>
+          <section style={{ marginTop: 18 }}>{props.progressBar}</section>
+          <section style={{ marginTop: 15 }}>{props.musicWave}</section>
+          <section>{props.footer}</section>
         </section>
       </div>
-    </main>
+    </React.Fragment>
   );
 }
 

@@ -1,0 +1,16 @@
+
+$breakpoints: (
+  'xs': 0px,
+  'sm': 576px,
+  'md':  960px,
+  'lg': 1280px,
+  'xl': 1920px,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}

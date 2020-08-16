@@ -5,8 +5,11 @@ import {Song} from "../../../redux-store/features/player/types";
 import {Cover} from "../../atoms/Cover";
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
-import settings from "./carousel-settings";
+import {coversCarouselSettings, titlesCarouselSettings} from "./carousel-settings";
 import SongTitle from "../../molecules/SongTitle";
+import {MAX_ROOT_WIDTH} from "../../../utils/constans";
+
+const coverSize = Math.floor(MAX_ROOT_WIDTH * 0.56);
 
 export interface CoversSliderProps {
   previousSongs: number[],
@@ -96,11 +99,11 @@ class CoversSlider extends Component<CoversSliderProps, CoversSliderState> {
     return (
       <div className={classes.root}>
         <Carousel
-          itemWidth={320}
+          itemWidth={coverSize}
           offset={-32}
           value={currentSlideIndex}
           onChange={this.onSlideChange}
-          {...settings}
+          {...coversCarouselSettings}
         >
           {cache.map(this.renderCover)}
         </Carousel>
@@ -108,11 +111,11 @@ class CoversSlider extends Component<CoversSliderProps, CoversSliderState> {
         <div className={classes.divider} />
 
         <Carousel
-          itemWidth={320}
+          itemWidth={coverSize}
           offset={-32}
           value={currentSlideIndex}
           onChange={this.onSlideChange}
-          {...settings}
+          {...titlesCarouselSettings}
         >
           {cache.map(this.renderTitle)}
         </Carousel>

@@ -1,5 +1,11 @@
+@import '../../../utils/breakpoints';
+
 .root {
   display: flex;
   flex-flow: row nowrap;
-  padding: 40px;
+  padding: 20px 20px 0 20px;
+
+  @include breakpoint('sm'){
+    padding: 40px;
+  }
 }

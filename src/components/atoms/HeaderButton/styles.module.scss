@@ -1,12 +1,19 @@
+@import "../../../utils/breakpoints";
+
 .btnContainer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  height: 29px;
-  width: 29px;
   margin: 14px 8px;
   user-select: none;
+  height: 21px;
+  width: 21px;
+
+  @include breakpoint('sm') {
+    height: 29px;
+    width: 29px;
+  }
 }
 .img {
   height: 100%;

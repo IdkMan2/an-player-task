@@ -1,10 +1,14 @@
 import {CarouselProps} from "@brainhubeu/react-carousel";
 
-const settings: CarouselProps = {
+export const coversCarouselSettings: CarouselProps = {
   clickToChange: true,
   centered: true,
   slidesPerPage: 2,
   dots: false,
 };
-
-export default settings;
+export const titlesCarouselSettings: CarouselProps = {
+  clickToChange: true,
+  centered: true,
+  slidesPerPage: 1,
+  dots: false,
+};

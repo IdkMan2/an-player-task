@@ -1,10 +1,21 @@
+@import "../../../utils/breakpoints";
+@import "../../../utils/highlight";
+
 .root {
   position: relative;
 }
 .divider {
-  margin: 39px 0;
+  margin: 0;
+
+  @include breakpoint('sm') {
+    margin: 39px 0;
+  }
 }
 
 :global ul[class ^= BrainhubCarousel__track] {
   overflow: visible !important;
+}
+
+:global li.BrainhubCarouselItem {
+  @include noHighlight;
 }

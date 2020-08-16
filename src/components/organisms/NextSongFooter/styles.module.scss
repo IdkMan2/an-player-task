@@ -1,3 +1,5 @@
+@import "../../../utils/breakpoints";
+
 .root {
   width: 100%;
   height: 90px;
@@ -10,7 +12,11 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  padding: 0 45px;
+  padding: 0 20px;
+
+  @include breakpoint('sm') {
+    padding: 0 45px;
+  }
 }
 .playlistImg {
   width: 36px;
@@ -39,7 +45,11 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   width: 100%;
-  padding-right: 64px;
+  padding-right: 32px;
+
+  @include breakpoint('sm') {
+    padding-right: 64px;
+  }
 }
 .songTitle {
   font-family: Gilroy sans-serif;

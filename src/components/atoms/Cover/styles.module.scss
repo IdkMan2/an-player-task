@@ -6,6 +6,8 @@
   transform: scale(1);
   padding-top: 96px;
   padding-bottom: 96px;
+  width: 55vw;
+  max-width: 320px;
 }
 .enlarge {
   transition: transform 0.15s, padding-top 0.15s, padding-bottom 0.15s;
@@ -15,8 +17,10 @@
 }
 
 .background {
-  height: 128px;
-  width: 128px;
+  height: 22vw;
+  width: 22vw;
+  max-width: 128px;
+  max-height: 128px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
