@@ -1,0 +1,63 @@
+.root {
+  width: 100%;
+  height: 156px;
+  display: flex;
+  margin-top: 38px;
+  padding: 0 23px;
+}
+.controlBtn:not(.playBtn) {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  img {
+    display: block;
+    margin: auto;
+    width: 26px;
+    cursor: pointer;
+    transition: filter 0.35s;
+
+    &:active {
+      filter:brightness(200%);
+      transition: filter 0.35s;
+    }
+    &.active {
+      filter:brightness(200%);
+      transition: filter 0.35s;
+    }
+  }
+}
+.playBtn {
+  flex: 2.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 300px;
+  z-index: 0;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    margin: auto;
+    width: 164px;
+    opacity: 1;
+    transition: opacity 0.2s;
+    border-radius: 300px;
+    cursor: pointer;
+
+    &.active {
+      width: 270px;
+      margin-left: 6px;
+    }
+    &.fadeOut {
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+}

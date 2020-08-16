@@ -15,12 +15,18 @@ const mapStateToProps = (state: RootState) => {
     previousSongs: state.player.previousSongs,
     nextSongs: state.player.nextSongs,
     songs: state.player.songs,
+    playbackStatus: playbackStatus,
   };
 };
 
 const mapDispatchToProps = (dispatch: StandardDispatch) => (
   bindActionCreators({
     playSpecifiedSong: player.actions.playSpecifiedSong,
+    playPreviousSong: player.actions.playPreviousSong,
+    playNextSong: player.actions.playNextSong,
+    switchPlayingState: player.actions.switchPlayingState,
+    switchLoopMode: player.actions.switchLoopMode,
+    switchShuffleMode: player.actions.switchShuffleMode,
   }, dispatch)
 );
 

@@ -6,6 +6,7 @@ import {Cover} from "../../atoms/Cover";
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import settings from "./carousel-settings";
+import SongTitle from "../../molecules/SongTitle";
 
 export interface CoversSliderProps {
   previousSongs: number[],
@@ -26,6 +27,7 @@ class CoversSlider extends Component<CoversSliderProps, CoversSliderState> {
     this.generateCache = this.generateCache.bind(this);
     this.renderCover = this.renderCover.bind(this);
     this.onSlideChange = this.onSlideChange.bind(this);
+    this.renderTitle = this.renderTitle.bind(this);
 
     const cache = this.generateCache();
     const currentSlideIndex = cache.indexOf(this.findSongById(this.props.currentSong));
@@ -55,7 +57,6 @@ class CoversSlider extends Component<CoversSliderProps, CoversSliderState> {
   }
   private generateCache(): Song[] {
     const {previousSongs, currentSong, nextSongs} = this.props;
-    console.log({previousSongs, currentSong, nextSongs});
     let cache: Song[] = [];
     cache = cache.concat(previousSongs.map(
       (songId: number) => this.findSongById(songId)
@@ -68,12 +69,25 @@ class CoversSlider extends Component<CoversSliderProps, CoversSliderState> {
   }
   private renderCover(song: Song, index: number) {
     return (
-      <Cover key={song.id + ':' + index} song={song} enlarge={this.props.currentSong === song.id} />
+      <Cover
+        key={song.id + ':' + index}
+        song={song}
+        enlarge={this.props.currentSong === song.id}
+      />
     );
   }
   private async onSlideChange(index: number): Promise<void> {
     const songId = this.state.cache[index].id;
     await this.props.playSpecifiedSong(songId);
+  }
+  private renderTitle(song: Song, index: number) {
+    return (
+      <SongTitle
+        key={song.id + ':' + index + '-title'}
+        song={song}
+        visible={this.props.currentSong === song.id}
+      />
+    );
   }
 
   render() {
@@ -89,6 +103,18 @@ class CoversSlider extends Component<CoversSliderProps, CoversSliderState> {
           {...settings}
         >
           {cache.map(this.renderCover)}
+        </Carousel>
+
+        <div className={classes.divider} />
+
+        <Carousel
+          itemWidth={320}
+          offset={-32}
+          value={currentSlideIndex}
+          onChange={this.onSlideChange}
+          {...settings}
+        >
+          {cache.map(this.renderTitle)}
         </Carousel>
       </div>
     );

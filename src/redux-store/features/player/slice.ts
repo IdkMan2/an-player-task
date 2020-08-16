@@ -69,33 +69,37 @@ export const player = createSlice({
       }
     },
     playPreviousSong: (state: InitialState, _action: Action) => {
-      if(state.previousSongs.length === 0) {
+      if(state.previousSongs.length === 0)
         return playbackStatusUpdater(state, {
           progressMillis: 0,
         });
-      } else {
-        const prevSongId = state.previousSongs[state.previousSongs.length - 1];
-        const currentSongId = state.playbackStatus.currentSongId;
-        const newNextSongsArray = state.nextSongs.slice();
-        newNextSongsArray.unshift(currentSongId);
 
-        return {
-          ...state,
-          nextSongs: newNextSongsArray,
-          playbackStatus: {
-            ...state.playbackStatus,
-            currentSongId: prevSongId,
-            progressMillis: 0,
-            isLoopModeEnabled: false,
-          }
-        };
-      }
+      const newNextSongs = state.nextSongs.slice();
+      const newPrevSongs = state.previousSongs.slice();
+      const songId = newPrevSongs.pop() as number;
+      const currentSongId = state.playbackStatus.currentSongId;
+      newNextSongs.unshift(currentSongId);
+
+      return {
+        ...state,
+        previousSongs: newPrevSongs,
+        nextSongs: newNextSongs,
+        playbackStatus: {
+          ...state.playbackStatus,
+          currentSongId: songId,
+          progressMillis: 0,
+          isLoopModeEnabled: false,
+        }
+      };
     },
     playNextSong: (state: InitialState, _action: Action) => {
-      const newNextSongs = fillPlaylist(state);
-      const nextSongId = state.nextSongs.unshift();
-      const currentSongId = state.playbackStatus.currentSongId;
+      if(state.nextSongs.length === 0)
+        return;
+
+      const newNextSongs = state.nextSongs.slice();
       const newPrevSongs = state.previousSongs.slice();
+      const songId = newNextSongs.shift() as number;
+      const currentSongId = state.playbackStatus.currentSongId;
       newPrevSongs.push(currentSongId);
 
       return {
@@ -104,7 +108,7 @@ export const player = createSlice({
         nextSongs: newNextSongs,
         playbackStatus: {
           ...state.playbackStatus,
-          currentSongId: nextSongId,
+          currentSongId: songId,
           progressMillis: 0,
           isLoopModeEnabled: false,
         }
@@ -115,19 +119,19 @@ export const player = createSlice({
         progressMillis: 0,
       });
     },
-    switchShuffleMode: (state: InitialState, action: PayloadAction<boolean>) => {
+    switchShuffleMode: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
       return playbackStatusUpdater(state, {
-        isShuffleModeEnabled: action.payload,
+        isShuffleModeEnabled: action.payload ? action.payload : !state.playbackStatus.isShuffleModeEnabled,
       });
     },
-    switchLoopMode: (state: InitialState, action: PayloadAction<boolean>) => {
+    switchLoopMode: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
       return playbackStatusUpdater(state, {
-        isLoopModeEnabled: action.payload,
+        isLoopModeEnabled: action.payload ? action.payload : !state.playbackStatus.isLoopModeEnabled,
       });
     },
-    switchPlayingState: (state: InitialState, action: PayloadAction<boolean>) => {
+    switchPlayingState: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
       return playbackStatusUpdater(state, {
-        isPlayingNow: action.payload,
+        isPlayingNow: action.payload ? action.payload : !state.playbackStatus.isPlayingNow,
       });
     },
     forwardProgress: (state: InitialState, action: PayloadAction<number>) => {

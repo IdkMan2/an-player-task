@@ -1,0 +1,38 @@
+.root {
+  flex: 1;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.title {
+  font-family: Gilroy sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-family: Gilroy sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #6f729c;
+  margin-top: 0;
+  margin-bottom: 0;
+}
