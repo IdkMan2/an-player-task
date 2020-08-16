@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dc6d93c14ee9f4df05f107c0e7d5ea3d",
+    "revision": "e50c1be42b28a98416b6a5b977631ba1",
     "url": "/an-player-task/index.html"
   },
   {
-    "revision": "acda14bcd65ad9d9baf3",
+    "revision": "51ba7fceec24d7d00a17",
     "url": "/an-player-task/static/css/2.a9e3d64b.chunk.css"
   },
   {
-    "revision": "57764e8fd156db058a7e",
-    "url": "/an-player-task/static/css/main.b8ecdb12.chunk.css"
+    "revision": "8e066d733dd54abea4fd",
+    "url": "/an-player-task/static/css/main.16bb1c6d.chunk.css"
   },
   {
-    "revision": "acda14bcd65ad9d9baf3",
-    "url": "/an-player-task/static/js/2.0b0f5975.chunk.js"
+    "revision": "51ba7fceec24d7d00a17",
+    "url": "/an-player-task/static/js/2.62257e00.chunk.js"
   },
   {
-    "revision": "3a5402f5ddd536a8f5deb8d906cf7b41",
-    "url": "/an-player-task/static/js/2.0b0f5975.chunk.js.LICENSE.txt"
+    "revision": "281879fe550972bffc7e495a6f8721f1",
+    "url": "/an-player-task/static/js/2.62257e00.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "57764e8fd156db058a7e",
-    "url": "/an-player-task/static/js/main.35834445.chunk.js"
+    "revision": "8e066d733dd54abea4fd",
+    "url": "/an-player-task/static/js/main.41d7b979.chunk.js"
   },
   {
     "revision": "f53fd20d60b41d10b5db",
@@ -76,6 +76,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/an-player-task/static/media/next_ico.908e77ad.svg"
   },
   {
+    "revision": "d560ea63609f1bd760297025444ffa79",
+    "url": "/an-player-task/static/media/playlist_ico.d560ea63.svg"
+  },
+  {
     "revision": "61530e1d25eb1ef8ad5d7e15af9ac18a",
     "url": "/an-player-task/static/media/previous_ico.61530e1d.svg"
   },
@@ -94,5 +98,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "2bd484f60129b6ae4d7aa799b430a9af",
     "url": "/an-player-task/static/media/usertive_logo.2bd484f6.svg"
+  },
+  {
+    "revision": "05b71ec63bfa32071802b29141af8d6e",
+    "url": "/an-player-task/static/media/wave.05b71ec6.png"
   }
 ]);
