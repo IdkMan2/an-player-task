@@ -2,19 +2,6 @@
   "name": "an-player-task",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.54",
-    "@types/react": "^16.9.46",
-    "@types/react-dom": "^16.9.8",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "typescript": "^3.7.5"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -35,5 +22,28 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@brainhubeu/react-carousel": "^1.19.26",
+    "@reduxjs/toolkit": "^1.4.0",
+    "@types/node": "^12.12.54",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "clsx": "^1.1.1",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/brainhubeu__react-carousel": "^1.15.0",
+    "@types/react-addons-shallow-compare": "^0.14.22",
+    "@types/react-redux": "^7.1.9"
   }
 }

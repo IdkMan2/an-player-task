@@ -1,0 +1,28 @@
+.root {
+  flex: 1;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.albumInfo {
+  font-family: Gilroy sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #6f729c;
+  margin: 0;
+}
+.albumTitle {
+  font-family: Gilroy sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin: 13px 0;
+}

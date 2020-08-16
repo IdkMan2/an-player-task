@@ -1,0 +1,8 @@
+.root {
+  position: relative;
+  margin-top: 13px;
+}
+
+:global ul[class ^= BrainhubCarousel__track] {
+  overflow: visible !important;
+}

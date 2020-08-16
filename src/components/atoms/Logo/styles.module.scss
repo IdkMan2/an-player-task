@@ -1,0 +1,21 @@
+@mixin circle($sideLength, $color) {
+  width: $sideLength;
+  height: $sideLength;
+  border-radius: $sideLength;
+  background-color: $color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root {
+  @include circle(32.8px, #755dd7);
+}
+.internalCircle {
+  @include circle(28.8px, #1f1935);
+}
+
+.logo {
+  width: 11.2px;
+  height: 12.8px;
+}

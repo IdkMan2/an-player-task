@@ -1,0 +1,20 @@
+.image {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  width: 100%; height: 432px;
+  background-color: #1f1937;
+  background-image: url(../../../assets/images/bg_image.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+  mix-blend-mode: luminosity;
+}
+
+.gradient {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  width: 100%; height: 432px;
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(16,12,45,0.4990371148459384) 40%, rgba(31,25,55,1) 100%);
+}

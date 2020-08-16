@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, padding-top 0.2s, padding-bottom 0.2s;
+  transform: scale(1);
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.enlarge {
+  transition: transform 0.15s, padding-top 0.15s, padding-bottom 0.15s;
+  transform: scale(2.5);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.background {
+  height: 128px;
+  width: 128px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.logoOverlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
