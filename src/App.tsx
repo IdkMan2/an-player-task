@@ -1,5 +1,5 @@
 import React from 'react';
-import RootPage from "./components/pages/Root";
+import RootPage from "./components/pages/RootPage";
 import {Provider as ReduxProvider} from "react-redux";
 import {store} from "./redux-store/store";
 

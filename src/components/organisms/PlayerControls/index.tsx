@@ -41,7 +41,7 @@ function PlayerControls(props: PlayerControlsProps) {
           onClick={createSwitcher(playPreviousSong)}
         />
       </div>
-      <div className={clsx(classes.controlBtn, classes.playBtn)}>
+      <div className={classes.playBtn}>
         <img
           src={playActiveBtnIcon}
           alt={'Pauza'}

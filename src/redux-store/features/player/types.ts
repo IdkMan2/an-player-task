@@ -13,7 +13,7 @@ export interface PlaybackStatus {
   isPlayingNow: boolean,
   isShuffleModeEnabled: boolean,
   isLoopModeEnabled: boolean,
-  progressMillis: number,
+  progressMilis: number,
 }
 
 export interface InitialState {

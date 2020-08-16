@@ -1,0 +1,21 @@
+.root {
+  padding: 5px 27px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.timeLabel {
+  display: flex;
+  justify-content: center;
+  width: 32px;
+  margin: 0 21px;
+  font-family: Gilroy sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #9a9b9b;
+}

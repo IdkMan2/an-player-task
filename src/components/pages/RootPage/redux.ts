@@ -27,6 +27,7 @@ const mapDispatchToProps = (dispatch: StandardDispatch) => (
     switchPlayingState: player.actions.switchPlayingState,
     switchLoopMode: player.actions.switchLoopMode,
     switchShuffleMode: player.actions.switchShuffleMode,
+    forwardProgress: player.actions.forwardProgress,
   }, dispatch)
 );
 

@@ -1,0 +1,16 @@
+.root {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sliderEndDot {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%; bottom: 0; right: 0;
+  transform: translateY(-50%);
+  background-color: #00c9b7;
+  border-radius: 5px;
+}

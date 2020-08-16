@@ -12,7 +12,7 @@ const initialState: InitialState = {
     currentSongId: demoSongs[0].id,
     isLoopModeEnabled: false,
     isShuffleModeEnabled: false,
-    progressMillis: 0,
+    progressMilis: 0,
   }
 };
 initialState.nextSongs = fillPlaylist(initialState);
@@ -28,7 +28,7 @@ export const player = createSlice({
       if(nextSongId === currentSongId) {
         // loop
         return playbackStatusUpdater(state, {
-          progressMillis: 0,
+          progressMilis: 0,
         });
       } else if(previousSongs.indexOf(nextSongId) !== -1) {
         const newCurrentSongIndex = previousSongs.indexOf(nextSongId);
@@ -44,7 +44,7 @@ export const player = createSlice({
           playbackStatus: {
             ...state.playbackStatus,
             currentSongId: nextSongId,
-            progressMillis: 0,
+            progressMilis: 0,
             isLoopModeEnabled: false,
           }
         };
@@ -62,7 +62,7 @@ export const player = createSlice({
           playbackStatus: {
             ...state.playbackStatus,
             currentSongId: nextSongId,
-            progressMillis: 0,
+            progressMilis: 0,
             isLoopModeEnabled: false,
           }
         };
@@ -71,7 +71,7 @@ export const player = createSlice({
     playPreviousSong: (state: InitialState, _action: Action) => {
       if(state.previousSongs.length === 0)
         return playbackStatusUpdater(state, {
-          progressMillis: 0,
+          progressMilis: 0,
         });
 
       const newNextSongs = state.nextSongs.slice();
@@ -87,7 +87,7 @@ export const player = createSlice({
         playbackStatus: {
           ...state.playbackStatus,
           currentSongId: songId,
-          progressMillis: 0,
+          progressMilis: 0,
           isLoopModeEnabled: false,
         }
       };
@@ -109,34 +109,34 @@ export const player = createSlice({
         playbackStatus: {
           ...state.playbackStatus,
           currentSongId: songId,
-          progressMillis: 0,
+          progressMilis: 0,
           isLoopModeEnabled: false,
         }
       };
     },
     loopSong: (state: InitialState, _action: Action) => {
       return playbackStatusUpdater(state, {
-        progressMillis: 0,
+        progressMilis: 0,
       });
     },
     switchShuffleMode: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
       return playbackStatusUpdater(state, {
-        isShuffleModeEnabled: action.payload ? action.payload : !state.playbackStatus.isShuffleModeEnabled,
+        isShuffleModeEnabled: typeof(action.payload) === 'boolean' ? action.payload : !state.playbackStatus.isShuffleModeEnabled,
       });
     },
     switchLoopMode: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
       return playbackStatusUpdater(state, {
-        isLoopModeEnabled: action.payload ? action.payload : !state.playbackStatus.isLoopModeEnabled,
+        isLoopModeEnabled: typeof(action.payload) === 'boolean' ? action.payload : !state.playbackStatus.isLoopModeEnabled,
       });
     },
     switchPlayingState: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
       return playbackStatusUpdater(state, {
-        isPlayingNow: action.payload ? action.payload : !state.playbackStatus.isPlayingNow,
+        isPlayingNow: typeof(action.payload) === 'boolean' ? action.payload : !state.playbackStatus.isPlayingNow,
       });
     },
-    forwardProgress: (state: InitialState, action: PayloadAction<number>) => {
+    forwardProgress: (state: InitialState, action: PayloadAction<number | undefined>) => {
       return playbackStatusUpdater(state, {
-        progressMillis: action.payload,
+        progressMilis: typeof(action.payload) === 'number' ? action.payload : state.playbackStatus.progressMilis + 1000,
       });
     },
   },
