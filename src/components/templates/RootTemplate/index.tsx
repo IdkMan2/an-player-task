@@ -19,10 +19,9 @@ function RootTemplate(props: RootTemplateProps) {
       <div className={classes.sectionsContainer}>
         <section>{props.header}</section>
         <section className={classes.bodySection}>{props.body}</section>
-
-        <section className={classes.stickyBottom}>
-          <section style={{ marginTop: 32 }}>{props.player}</section>
-          <section style={{ marginTop: 18 }}>{props.progressBar}</section>
+        <section>
+          <section className={classes.playerSection}>{props.player}</section>
+          <section className={classes.progressBarSection}>{props.progressBar}</section>
           <section style={{ marginTop: 15 }}>{props.musicWave}</section>
           <section>{props.footer}</section>
         </section>

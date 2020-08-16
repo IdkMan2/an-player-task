@@ -1,14 +1,5 @@
-/*.root {
-  flex: 1;
-  display: flex;
-  flex-flow: column nowrap;
-  position: relative;
-  max-width: 576px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #1f1937;
-}*/
+@import "../../../utils/breakpoints";
+
 .backgroundLayer {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -31,6 +22,15 @@
   flex-flow: column nowrap;
   justify-content: center;
 }
-.stickyBottom {
-
+.playerSection {
+  margin-top: 23px;
+  @include breakpoint('sm') {
+    margin-top: 32px;
+  }
+}
+.progressBarSection {
+  margin-top: 0;
+  @include breakpoint('sm') {
+    margin-top: 18px;
+  }
 }

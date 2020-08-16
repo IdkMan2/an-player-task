@@ -1,3 +1,5 @@
+@import "../../../utils/breakpoints";
+
 .root {
   flex: 1;
   flex-flow: column nowrap;
@@ -12,7 +14,6 @@
 }
 .title {
   font-family: Gilroy sans-serif;
-  font-size: 36px;
   font-weight: 700;
   font-stretch: normal;
   font-style: normal;
@@ -22,10 +23,14 @@
   color: #ffffff;
   margin-top: 0;
   margin-bottom: 12px;
+  font-size: 26px;
+
+  @include breakpoint('sm') {
+    font-size: 36px;
+  }
 }
 .subtitle {
   font-family: Gilroy sans-serif;
-  font-size: 18px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -35,4 +40,9 @@
   color: #6f729c;
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 13px;
+
+  @include breakpoint('sm') {
+    font-size: 18px;
+  }
 }
