@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/an-player-task/static/css/main.b8ecdb12.chunk.css",
+    "main.js": "/an-player-task/static/js/main.35834445.chunk.js",
+    "main.js.map": "/an-player-task/static/js/main.35834445.chunk.js.map",
+    "runtime-main.js": "/an-player-task/static/js/runtime-main.ab87c719.js",
+    "runtime-main.js.map": "/an-player-task/static/js/runtime-main.ab87c719.js.map",
+    "static/css/2.a9e3d64b.chunk.css": "/an-player-task/static/css/2.a9e3d64b.chunk.css",
+    "static/js/2.0b0f5975.chunk.js": "/an-player-task/static/js/2.0b0f5975.chunk.js",
+    "static/js/2.0b0f5975.chunk.js.map": "/an-player-task/static/js/2.0b0f5975.chunk.js.map",
+    "index.html": "/an-player-task/index.html",
+    "precache-manifest.f2773b509e3dea5a1be40e86d1644ed3.js": "/an-player-task/precache-manifest.f2773b509e3dea5a1be40e86d1644ed3.js",
+    "service-worker.js": "/an-player-task/service-worker.js",
+    "static/css/2.a9e3d64b.chunk.css.map": "/an-player-task/static/css/2.a9e3d64b.chunk.css.map",
+    "static/css/main.b8ecdb12.chunk.css.map": "/an-player-task/static/css/main.b8ecdb12.chunk.css.map",
+    "static/js/2.0b0f5975.chunk.js.LICENSE.txt": "/an-player-task/static/js/2.0b0f5975.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/an-player-task/static/media/Gilroy-Regular.22d25e11.ttf",
+    "static/media/Play_active.png": "/an-player-task/static/media/Play_active.d522478d.png",
+    "static/media/back_ico.svg": "/an-player-task/static/media/back_ico.6d8b1009.svg",
+    "static/media/styles.module.scss": "/an-player-task/static/media/bg_image.52d51b7d.jpg",
+    "static/media/cover-1.png": "/an-player-task/static/media/cover-1.8e344a79.png",
+    "static/media/cover.png": "/an-player-task/static/media/cover.aa246fdc.png",
+    "static/media/more_ico.svg": "/an-player-task/static/media/more_ico.68d542b2.svg",
+    "static/media/next_ico.svg": "/an-player-task/static/media/next_ico.908e77ad.svg",
+    "static/media/previous_ico.svg": "/an-player-task/static/media/previous_ico.61530e1d.svg",
+    "static/media/repeat_ico.svg": "/an-player-task/static/media/repeat_ico.f24e6532.svg",
+    "static/media/shuffle_ico.svg": "/an-player-task/static/media/shuffle_ico.9cca0f11.svg",
+    "static/media/unreleased_cover.png": "/an-player-task/static/media/unreleased_cover.a2195768.png",
+    "static/media/usertive_logo.svg": "/an-player-task/static/media/usertive_logo.2bd484f6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ab87c719.js",
+    "static/css/2.a9e3d64b.chunk.css",
+    "static/js/2.0b0f5975.chunk.js",
+    "static/css/main.b8ecdb12.chunk.css",
+    "static/js/main.35834445.chunk.js"
+  ]
+}
