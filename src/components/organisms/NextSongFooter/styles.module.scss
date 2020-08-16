@@ -1,0 +1,65 @@
+.root {
+  width: 100%;
+  height: 90px;
+  background-color: #ffffff;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.playlistImgWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 45px;
+}
+.playlistImg {
+  width: 36px;
+  height: 26px;
+}
+.nextSongContentWrapper {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.label {
+  font-family: Gilroy sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: center;
+  color: #6f729c;
+}
+.songInfoRow {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 64px;
+}
+.songTitle {
+  font-family: Gilroy sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.8;
+  text-align: left;
+  letter-spacing: normal;
+  color: #1b1b1b;
+}
+.songDuration {
+  font-family: Gilroy sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: right;
+  color: #6f729c;
+}

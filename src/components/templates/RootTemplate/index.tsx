@@ -18,11 +18,14 @@ function RootTemplate(props: RootTemplateProps) {
       <div className={classes.backgroundLayer}>{props.backgroundLayer}</div>
       <div className={classes.sectionsContainer}>
         <section>{props.header}</section>
-        <section>{props.body}</section>
+        <section style={{ marginTop: 13 }}>{props.body}</section>
         <section style={{ marginTop: 38 }}>{props.player}</section>
         <section style={{ marginTop: 35 }}>{props.progressBar}</section>
-        <section>{props.musicWave}</section>
-        <section>{props.footer}</section>
+        <section style={{ flex: 1, marginTop: 15, }} />
+        <section className={classes.footer}>
+          {props.musicWave}
+          {props.footer}
+        </section>
       </div>
     </main>
   );

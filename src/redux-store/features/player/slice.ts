@@ -46,6 +46,7 @@ export const player = createSlice({
             currentSongId: nextSongId,
             progressMilis: 0,
             isLoopModeEnabled: false,
+            isPlayingNow: true,
           }
         };
       } else if(nextSongs.indexOf(nextSongId) !== -1) {
@@ -63,7 +64,7 @@ export const player = createSlice({
             ...state.playbackStatus,
             currentSongId: nextSongId,
             progressMilis: 0,
-            isLoopModeEnabled: false,
+            isLoopModeEnabled: false
           }
         };
       }
@@ -88,13 +89,13 @@ export const player = createSlice({
           ...state.playbackStatus,
           currentSongId: songId,
           progressMilis: 0,
-          isLoopModeEnabled: false,
+          isLoopModeEnabled: false
         }
       };
     },
     playNextSong: (state: InitialState, _action: Action) => {
       if(state.nextSongs.length === 0)
-        return;
+        return; //TODO: zacznij od początku..?
 
       const newNextSongs = state.nextSongs.slice();
       const newPrevSongs = state.previousSongs.slice();
@@ -110,13 +111,13 @@ export const player = createSlice({
           ...state.playbackStatus,
           currentSongId: songId,
           progressMilis: 0,
-          isLoopModeEnabled: false,
+          isLoopModeEnabled: false
         }
       };
     },
     loopSong: (state: InitialState, _action: Action) => {
       return playbackStatusUpdater(state, {
-        progressMilis: 0,
+        progressMilis: 0
       });
     },
     switchShuffleMode: (state: InitialState, action: PayloadAction<boolean | undefined>) => {

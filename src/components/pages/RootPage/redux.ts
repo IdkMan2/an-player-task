@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch: StandardDispatch) => (
     playSpecifiedSong: player.actions.playSpecifiedSong,
     playPreviousSong: player.actions.playPreviousSong,
     playNextSong: player.actions.playNextSong,
+    loopSong: player.actions.loopSong,
     switchPlayingState: player.actions.switchPlayingState,
     switchLoopMode: player.actions.switchLoopMode,
     switchShuffleMode: player.actions.switchShuffleMode,
