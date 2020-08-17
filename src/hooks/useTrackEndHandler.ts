@@ -5,8 +5,10 @@ export interface UseTrackEndHandlerProps {
   progressMilis: number,
   durationMilis: number,
   isLoopModeEnabled: boolean,
+  isShuffleModeEnabled: boolean,
   loopSong: () => void,
   playNextSong: () => void,
+  playRandomSong: () => void,
   switchPlayingState: (newPlayingState: boolean) => void,
 }
 
@@ -14,13 +16,16 @@ export default function useTrackEndHandler(args: UseTrackEndHandlerProps) {
   const {
     isPlayingNow, progressMilis, durationMilis,
     isLoopModeEnabled, loopSong, playNextSong,
-    switchPlayingState
+    switchPlayingState, isShuffleModeEnabled,
+    playRandomSong,
   } = args;
 
   useEffect(() => {
     if(!isPlayingNow && progressMilis === durationMilis) {
       if(isLoopModeEnabled)
         loopSong();
+      else if(isShuffleModeEnabled)
+        playRandomSong();
       else
         playNextSong();
 
@@ -29,6 +34,7 @@ export default function useTrackEndHandler(args: UseTrackEndHandlerProps) {
   }, [
     isPlayingNow, progressMilis, durationMilis,
     isLoopModeEnabled, loopSong, playNextSong,
-    switchPlayingState
+    switchPlayingState, isShuffleModeEnabled,
+    playRandomSong
   ]);
 }

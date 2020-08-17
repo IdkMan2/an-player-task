@@ -5,111 +5,131 @@ import {fillPlaylist, playbackStatusUpdater} from "./helpers";
 
 const initialState: InitialState = {
   songs: demoSongs,
-  previousSongs: [],
-  nextSongs: [],
+  history: [],
+  playlist: [],
   playbackStatus: {
     isPlayingNow: true,
     currentSongId: demoSongs[0].id,
+    historyCursorIndex: 0,
     isLoopModeEnabled: false,
     isShuffleModeEnabled: false,
     progressMilis: 0,
   }
 };
-initialState.nextSongs = fillPlaylist(initialState);
+initialState.playlist = fillPlaylist(initialState);
 
 export const player = createSlice({
   name: 'APP/FEATURES/PLAYER',
   initialState: initialState,
   reducers: {
     playSpecifiedSong: (state: InitialState, action: PayloadAction<number>) => {
+      const previousSongId = state.playbackStatus.currentSongId;
       const nextSongId = action.payload;
-      const {previousSongs, playbackStatus: {currentSongId}, nextSongs} = state;
+      const {history, playbackStatus: {currentSongId}} = state;
 
       if(nextSongId === currentSongId) {
         // loop
         return playbackStatusUpdater(state, {
           progressMilis: 0,
         });
-      } else if(previousSongs.indexOf(nextSongId) !== -1) {
-        const newCurrentSongIndex = previousSongs.indexOf(nextSongId);
-        const songsToTransfer = previousSongs.slice(newCurrentSongIndex + 1, previousSongs.length);
-        const newPreviousSongs = previousSongs.slice(0, newCurrentSongIndex);
-        const newNextSongs = nextSongs.slice();
-        newNextSongs.unshift(...songsToTransfer, currentSongId);
+      } else {
+        const newHistory = history.slice();
+        newHistory.push(previousSongId);
 
         return {
           ...state,
-          previousSongs: newPreviousSongs,
-          nextSongs: newNextSongs,
+          history: newHistory,
           playbackStatus: {
             ...state.playbackStatus,
             currentSongId: nextSongId,
-            progressMilis: 0,
-            isLoopModeEnabled: false,
-            isPlayingNow: true,
-          }
-        };
-      } else if(nextSongs.indexOf(nextSongId) !== -1) {
-        const newCurrentSongIndex = nextSongs.indexOf(nextSongId);
-        const songsToTransfer = nextSongs.slice(0, newCurrentSongIndex);
-        const newNextSongs = nextSongs.slice(newCurrentSongIndex + 1, nextSongs.length);
-        const newPreviousSongs = previousSongs.slice();
-        newPreviousSongs.push(currentSongId, ...songsToTransfer);
-
-        return {
-          ...state,
-          previousSongs: newPreviousSongs,
-          nextSongs: newNextSongs,
-          playbackStatus: {
-            ...state.playbackStatus,
-            currentSongId: nextSongId,
+            historyCursorIndex: newHistory.length,
             progressMilis: 0,
             isLoopModeEnabled: false
           }
         };
       }
     },
+    playRandomSong: (state: InitialState, _action: Action) => {
+      const historyCursor = state.playbackStatus.historyCursorIndex;
+      const newPlaylist = fillPlaylist(state);
+      const newHistory = state.history.slice();
+
+      // maintain history
+      if(historyCursor === state.history.length) {
+        const prevSongId = state.playbackStatus.currentSongId;
+        newHistory.push(prevSongId);
+      }
+
+      // keep history cursor updated
+      const newHistoryCursor = newHistory.length;
+
+      // get song
+      const newCurrentSongId = newPlaylist.shift() as number;
+
+      return {
+        ...state,
+        history: newHistory,
+        playlist: newPlaylist,
+        playbackStatus: {
+          ...state.playbackStatus,
+          currentSongId: newCurrentSongId,
+          historyCursorIndex: newHistoryCursor,
+          progressMilis: 0,
+          isLoopModeEnabled: false
+        }
+      };
+    },
     playPreviousSong: (state: InitialState, _action: Action) => {
-      if(state.previousSongs.length === 0)
+      const historyCursor = state.playbackStatus.historyCursorIndex;
+      if(state.history.length === 0 || historyCursor === 0)
         return playbackStatusUpdater(state, {
           progressMilis: 0,
         });
 
-      const newNextSongs = state.nextSongs.slice();
-      const newPrevSongs = state.previousSongs.slice();
-      const songId = newPrevSongs.pop() as number;
-      const currentSongId = state.playbackStatus.currentSongId;
-      newNextSongs.unshift(currentSongId);
+      const nextHistoryCursor = historyCursor - 1;
+      const nextSongId = state.history[nextHistoryCursor];
 
       return {
         ...state,
-        previousSongs: newPrevSongs,
-        nextSongs: newNextSongs,
         playbackStatus: {
           ...state.playbackStatus,
-          currentSongId: songId,
+          currentSongId: nextSongId,
+          historyCursorIndex: nextHistoryCursor,
           progressMilis: 0,
           isLoopModeEnabled: false
         }
       };
     },
     playNextSong: (state: InitialState, _action: Action) => {
-      if(state.nextSongs.length === 0)
-        return; //TODO: zacznij od początku..?
+      const historyCursor = state.playbackStatus.historyCursorIndex;
+      const newPlaylist = fillPlaylist(state);
+      let newHistory, newCurrentSongId, newHistoryCursor;
 
-      const newNextSongs = state.nextSongs.slice();
-      const newPrevSongs = state.previousSongs.slice();
-      const songId = newNextSongs.shift() as number;
-      const currentSongId = state.playbackStatus.currentSongId;
-      newPrevSongs.push(currentSongId);
+      if(historyCursor === state.history.length) { // playing new songs
+        newHistory = state.history.slice();
+        newCurrentSongId = newPlaylist.shift() as number;
+        // maintain history
+        const prevSongId = state.playbackStatus.currentSongId;
+        newHistory.push(prevSongId);
+        newHistoryCursor = newHistory.length;
+      } else { // searching in history
+        newHistoryCursor = historyCursor + 1;
+        newHistory = state.history.slice();
+        if(newHistory.length === newHistoryCursor) {
+          newCurrentSongId = newPlaylist.shift() as number;
+        } else {
+          newCurrentSongId = newHistory[newHistoryCursor];
+        }
+      }
 
       return {
         ...state,
-        previousSongs: newPrevSongs,
-        nextSongs: newNextSongs,
+        history: newHistory,
+        playlist: newPlaylist,
         playbackStatus: {
           ...state.playbackStatus,
-          currentSongId: songId,
+          currentSongId: newCurrentSongId,
+          historyCursorIndex: newHistoryCursor,
           progressMilis: 0,
           isLoopModeEnabled: false
         }
@@ -121,9 +141,16 @@ export const player = createSlice({
       });
     },
     switchShuffleMode: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
-      return playbackStatusUpdater(state, {
-        isShuffleModeEnabled: typeof(action.payload) === 'boolean' ? action.payload : !state.playbackStatus.isShuffleModeEnabled,
-      });
+      const isShuffleModeEnabled = typeof(action.payload) === 'boolean' ? action.payload : !state.playbackStatus.isShuffleModeEnabled;
+
+      return {
+        ...state,
+        playlist: isShuffleModeEnabled ? [] : [1],
+        playbackStatus: {
+          ...state.playbackStatus,
+          isShuffleModeEnabled,
+        }
+      };
     },
     switchLoopMode: (state: InitialState, action: PayloadAction<boolean | undefined>) => {
       return playbackStatusUpdater(state, {

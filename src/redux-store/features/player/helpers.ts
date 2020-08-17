@@ -23,35 +23,33 @@ export function fillPlaylist(state: InitialState): number[] {
 }
 
 function fillOrderedPlaylist(state: InitialState): number[] {
-  let newNextSongs: number[] = state.nextSongs.slice();
+  let newPlaylist: number[] = state.playlist.slice();
 
-  let songIndex: number = newNextSongs[newNextSongs.length - 1] ?? 0;
-  const limit = state.songs.length - state.previousSongs.length - 1;
-  while(newNextSongs.length < limit) {
-    songIndex += 1;
+  let lastSongIndex: number = newPlaylist.length > 0 ? newPlaylist[newPlaylist.length - 1] : 1;
+  while(newPlaylist.length < state.songs.length + 1) {
+    if(lastSongIndex === state.songs.length)
+      lastSongIndex = 0;
 
-    if(songIndex === state.songs.length)
-      songIndex = 0;
+    newPlaylist.push(state.songs[lastSongIndex].id);
 
-    newNextSongs.push(state.songs[songIndex].id);
+    lastSongIndex += 1;
   }
 
-  return newNextSongs;
+  return newPlaylist;
 }
 
 function fillShuffledPlaylist(state: InitialState): number[] {
-  let newNextSongs: number[] = state.nextSongs.slice();
+  let newPlaylist: number[] = state.playlist.slice();
 
-  let lastPushedSongId: number = newNextSongs[newNextSongs.length - 1] ?? 0;
-  const limit = state.songs.length - state.previousSongs.length - 1;
-  while(newNextSongs.length < limit) {
-    const songIndex = getRandomInt(0, state.songs.length);
+  let lastPushedSongId: number = newPlaylist.length > 0 ? newPlaylist[newPlaylist.length - 1] : 1;
+  while(newPlaylist.length < state.songs.length + 1) {
+    const songIndex = getRandomInt(0, state.songs.length - 1);
     const song: Song = state.songs[songIndex];
     if(song.id !== lastPushedSongId) {
       lastPushedSongId = song.id;
-      newNextSongs.push(song.id);
+      newPlaylist.push(song.id);
     }
   }
 
-  return newNextSongs;
+  return newPlaylist;
 }

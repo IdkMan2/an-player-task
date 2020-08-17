@@ -12,8 +12,8 @@ const mapStateToProps = (state: RootState) => {
 
   return {
     currentSong: currentSong,
-    previousSongs: state.player.previousSongs,
-    nextSongs: state.player.nextSongs,
+    history: state.player.history,
+    playlist: state.player.playlist,
     songs: state.player.songs,
     playbackStatus: playbackStatus,
   };
@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch: StandardDispatch) => (
     playSpecifiedSong: player.actions.playSpecifiedSong,
     playPreviousSong: player.actions.playPreviousSong,
     playNextSong: player.actions.playNextSong,
+    playRandomSong: player.actions.playRandomSong,
     loopSong: player.actions.loopSong,
     switchPlayingState: player.actions.switchPlayingState,
     switchLoopMode: player.actions.switchLoopMode,

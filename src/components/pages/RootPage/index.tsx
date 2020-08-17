@@ -17,9 +17,9 @@ function RootPage(props: RootPageProps) {
   const {
     currentSong, playbackStatus, forwardProgress,
     switchPlayingState, loopSong, playNextSong,
-    songs, nextSongs
+    songs, playRandomSong, playlist
   } = props;
-  const {isPlayingNow, progressMilis, isLoopModeEnabled} = playbackStatus;
+  const {isPlayingNow, progressMilis, isLoopModeEnabled, isShuffleModeEnabled} = playbackStatus;
 
   useTrackTimer({
     isPlayingNow,
@@ -33,10 +33,12 @@ function RootPage(props: RootPageProps) {
     isPlayingNow,
     progressMilis,
     isLoopModeEnabled,
+    isShuffleModeEnabled,
     durationMilis: currentSong.durationMillis,
     loopSong,
     playNextSong,
-    switchPlayingState
+    switchPlayingState,
+    playRandomSong
   });
 
   return (
@@ -47,7 +49,7 @@ function RootPage(props: RootPageProps) {
       player={<PlayerControls {...playbackStatus} {...props} />}
       progressBar={<ProgressControls {...playbackStatus} songs={props.songs} forwardProgress={forwardProgress} />}
       musicWave={<MusicWave />}
-      footer={<NextSongFooter songs={songs} nextSongs={nextSongs} />}
+      footer={<NextSongFooter songs={songs} playlist={playlist} />}
     />
   );
 }

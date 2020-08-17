@@ -10,6 +10,7 @@ export interface Song {
 
 export interface PlaybackStatus {
   currentSongId: number,
+  historyCursorIndex: number,
   isPlayingNow: boolean,
   isShuffleModeEnabled: boolean,
   isLoopModeEnabled: boolean,
@@ -18,7 +19,7 @@ export interface PlaybackStatus {
 
 export interface InitialState {
   songs: Song[],
-  previousSongs: number[],
-  nextSongs: number[],
+  history: number[],
+  playlist: number[],
   playbackStatus: PlaybackStatus,
 }
